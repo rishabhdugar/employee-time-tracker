@@ -4,7 +4,7 @@ import time, datetime, calendar
 import re, os, psycopg2, subprocess
 from tkWindow import tkWindow
 
-PROC = subprocess.Popen('heroku config:get DATABASE_URL -a employee-time-tracker', stdout=subprocess.PIPE, shell=True)
+PROC = subprocess.Popen('heroku config:get postgres://lkxzaxbxnidwby:c1692b10a92ea7ea26bd8de6520fd382ec7385007b25d6258a04e88aeba7ce00@ec2-54-174-31-7.compute-1.amazonaws.com:5432/d5466h3m0hvikm -a employee-time-tracker', stdout=subprocess.PIPE, shell=True)
 DB_URL = PROC.stdout.read().decode('utf-8').strip() + '?sslmode=require'
 
 try:
